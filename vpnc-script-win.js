@@ -59,7 +59,7 @@ function echoMultiLine(msg)
 function exec(cmd)
 {
 	echo("<<-- [EXEC] " + cmd);
-	var oExec = ws.Exec(comspec + " /C \"" + cmd + "\" 2>&1");
+	var oExec = ws.Exec(comspec + " /C \"chcp 65001 >nul & " + cmd + "\" 2>&1");
 	oExec.StdIn.Close();
 	
 	var s = oExec.StdOut.ReadAll();
